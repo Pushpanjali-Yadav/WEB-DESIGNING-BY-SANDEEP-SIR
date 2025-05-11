@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+          // TODO: Add code to check answers to questions
+          function checkans(event) {
+
+              // Get the element which triggered the event
+              let button = event.target;
+               let ans = button.innerHTML;
+
+              // Check if the element's inner HTML matches expected answer
+          
+              if ( ans === 'Mars' || ans === 'Tokyo' || ans === 'H₂O' || ans === 'Mount Everest' || ans === 'Pacific Ocean' || ans === 'Alexander Graham Bell' || ans === 'Harper Lee' || ans === 'Tiger' || ans === 'US Dollar'|| ans === 'Antarctic Polar Desert'  ) {
+                  button.style.backgroundColor = 'Green';
+                  button.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+              }
+
+              else {
+                  button.style.backgroundColor = 'Red';
+                  button.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+              }
+          }
+
+          function checkFreeResponse(event) {
+
+              // Get the element which triggered the event
+              let button = event.target;
+
+              // Get the input element corresponding to the button
+              let input = button.parentElement.querySelector('input');
+
+              // Check for correct answer
+              if (input.value === 'mars' || input.value === 'Mars' || input.value === 'MARS') {
+                  input.style.backgroundColor = 'Green';
+                  input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+              }
+              else {
+                  input.style.backgroundColor = 'Red';
+                  input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+              }
+          }
+      </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>1. What is the capital of Japan?</h3>
+                 <button onclick="checkans(event) ">Delhi</button>
+                 <button onclick="checkans(event) ">Tokyo</button>
+                 <button onclick="checkans(event) ">New York</button>
+                 <button onclick="checkans(event) ">Beijing</button>
+                 <p class="feedback"></p>
+                 </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>Which planet is known as the "Red Planet"?</h3>
+                 <input type="text" autocomplete="off">
+                 <button onclick="checkFreeResponse(event)">Check Answer</button>
+                 <p class="feedback"></p>
+            </div>
+        </div>
+
+  
+    </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+          // TODO: Add code to check answers to questions
+          function checkans(event) {
+
+              // Get the element which triggered the event
+              let button = event.target;
+               let ans = button.innerHTML;
+
+              // Check if the element's inner HTML matches expected answer
+          
+              if ( ans === 'Mars' || ans === 'Tokyo' || ans === 'H₂O' || ans === 'Mount Everest' || ans === 'Pacific Ocean' || ans === 'Alexander Graham Bell' || ans === 'Harper Lee' || ans === 'Tiger' || ans === 'US Dollar'|| ans === 'Antarctic Polar Desert'  ) {
+                  button.style.backgroundColor = 'Green';
+                  button.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+              }
+
+              else {
+                  button.style.backgroundColor = 'Red';
+                  button.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+              }
+          }
+
+          function checkFreeResponse(event) {
+
+              // Get the element which triggered the event
+              let button = event.target;
+
+              // Get the input element corresponding to the button
+              let input = button.parentElement.querySelector('input');
+
+              // Check for correct answer
+              if (input.value === 'modi') {
+                  input.style.backgroundColor = 'Green';
+                  input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+              }
+              else {
+                  input.style.backgroundColor = 'Red';
+                  input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+              }
+          }
+      </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>1. What is the capital of Japan?</h3>
+                 <button onclick="checkans(event) ">Delhi</button>
+                 <button onclick="checkans(event) ">Tokyo</button>
+                 <button onclick="checkans(event) ">New York</button>
+                 <button onclick="checkans(event) ">Beijing</button>
+                 <p class="feedback"></p>
+                 </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>who is the PM of America?</h3>
+                 <input type="text">
+                 <button onclick="checkFreeResponse(event)">Check Answer</button>
+                 <p class="feedback"></p>
+            </div>
+        </div>
+
+  
+    </body>
+</html>
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+          // TODO: Add code to check answers to questions
+          function checkans(event) {
+
+              // Get the element which triggered the event
+              let button = event.target;
+               let ans = button.innerHTML;
+
+              // Check if the element's inner HTML matches expected answer
+          
+              if ( ans === 'Mars' || ans === 'Tokyo' || ans === 'H₂O' || ans === 'Mount Everest' || ans === 'Pacific Ocean' || ans === 'Alexander Graham Bell' || ans === 'Harper Lee' || ans === 'Tiger' || ans === 'US Dollar'|| ans === 'Antarctic Polar'  ) {
+                  button.style.backgroundColor = 'Green';
+                  button.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+              }
+
+              else {
+                  button.style.backgroundColor = 'Red';
+                  button.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+              }
+          }
+
+          function checkFreeResponse(event) {
+
+              // Get the element which triggered the event
+              let button = event.target;
+
+              // Get the input element corresponding to the button
+              let input = button.parentElement.querySelector('input');
+
+              // Check for correct answer
+              if (input.value === 'modi') {
+                  input.style.backgroundColor = 'Green';
+                  input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+              }
+              else {
+                  input.style.backgroundColor = 'Red';
+                  input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect';
+              }
+          }
+      </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                 <h3>1. What is the capital of Japan?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">Tokyo</button>
+                 <button onclick="checkans(event) ">900</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q2 -->
+                 <h3>What is the chemical symbol for water?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">400</button>
+                 <button onclick="checkans(event) ">H₂O</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q3 -->
+                 <h3>What is the highest mountain in the world?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">Mount Everest</button>
+                 <button onclick="checkans(event) ">900</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q4 -->
+                 <h3> Which planet is known as the "Red Planet"?</h3>
+                 <button onclick="checkans(event) ">Mars</button>
+                 <button onclick="checkans(event) ">400</button>
+                 <button onclick="checkans(event) ">900</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q5 -->
+                 <h3>6. What is the largest ocean on Earth?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">400</button>
+                 <button onclick="checkans(event) ">Pacific Ocean</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q6 -->
+                 <h3>Who invented the telephone?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">400</button>
+                 <button onclick="checkans(event) ">900</button>
+                 <button onclick="checkans(event) ">Alexander Graham Bell</button>
+                 <p class="feedback"></p>
+                 <!-- Q7 -->
+                 <h3>What is the national animal of India?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">Tiger</button>
+                 <button onclick="checkans(event) ">900</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q8 -->
+                 <h3>What is the currency of the United States?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">400</button>
+                 <button onclick="checkans(event) ">US Dollar</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q9 -->
+                 <h3>10. What is the largest desert in the world?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">Antarctic Polar Desert</button>
+                 <button onclick="checkans(event) ">900</button>
+                 <button onclick="checkans(event) ">700</button>
+                 <p class="feedback"></p>
+                 <!-- Q10 -->
+                 <h3>2. Who wrote "To Kill a Mockingbird"?</h3>
+                 <button onclick="checkans(event) ">600</button>
+                 <button onclick="checkans(event) ">400</button>
+                 <button onclick="checkans(event) ">900</button>
+                 <button onclick="checkans(event) ">Harper Lee</button>
+                 <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                 <h3>who is the PM of America?</h3>
+                 <input type="text">
+                 <button onclick="checkFreeResponse(event)">Check Answer</button>
+                 <p class="feedback"></p>
+            </div>
+        </div>
+
+  
+    </body>
+</html>
