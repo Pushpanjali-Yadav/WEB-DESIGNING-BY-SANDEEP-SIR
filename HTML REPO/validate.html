@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+  function greet()
+  {
+    let name = document.querySelector('#m').value;
+    let lastname = document.querySelector('#ln').value;
+    alert('Hello! '+name+ '\n'+'Your Last name is: '+lastname);
+  }
+</script>
+<body>
+  <form onsubmit="greet();">
+  <input type="text" name="name" id="m" placeholder="firstname">
+  <input type="text" name="lastname" id="ln" placeholder="lastname">
+  <button>submit</button>
+</form>
+</body>
+</html>
