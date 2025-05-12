@@ -1,0 +1,11 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+body{
+  background-color: rgb(228, 218, 250);
+}
+h3{
+  font-size: 30px;
+  color: rgb(255, 54, 54);
+}
