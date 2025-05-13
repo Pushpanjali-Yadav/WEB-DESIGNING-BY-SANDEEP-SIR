@@ -5,35 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="call.css">
 </head>
 <body>
-  <h2>Contact for vest Places To visit</h2>
-  <table>
-    <td> <a href="/Homepage/about.html">ABOUT</a></td>
-    <td> <a href="/Homepage/contact.html">CONTACT</a></td>
-    <td> <a href="/Homepage/gallary.html">IMAGES</a></td>
-    <td> <a href="/Homepage/index.html">INDEX</a></td>
-   </table>
-   <hr>
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum odit doloribus ipsum vitae qui nobis, nemo beatae nulla. Ipsam quam doloremque beatae cumque est temporibus. Maxime voluptatum delectus nobis esse?</p>
-   <img src="/Homepage/all-img/home2.jpg" alt="">
-   <form>
-    <label for="name">User Name</label>
-    <input type="text"><br>
-    <label for="email">E-mail Address</label>
-    <input type="email" autocomplete="off"><br>
-    <label for="password" aria-autocomplete="off">Password</label>
-    <input type="text"><br>
-    <button>Submit</button>
-    <button>Reset</button>
-   </form>
+  <header>
+    <marquee scrollamount="15"> <h1>🔷🤩Welcome To The World Of Tourism🔷🤩</h1></marquee>
+   <div class="ih2"><h2>AMIGO <span>TOUR </span>PLASA</h2></div> 
+   
+<table width="40%" cellpadding="2" cellspacing="0" align="right">
+ <td width="10%"><button  onclick="change(event)"> <a href="/Homepage/index.html">INDEX</a></button></td>
+ <td width="10%"><button  onclick="change(event)"> <a href="/Homepage/gallary.html">IMAGES</a></button></td>
+ <td width="10%"><button  onclick="change(event)"> <a href="/Homepage/about.html">ABOUT</a></button></td>
+<td width="10%"> <button  onclick="change(event)"><a href="/Homepage/contact.html">CONTACT</a></button></td>
+</table>
+</header>
+<br class="br1" >
+<hr id="hr1">
+<br>
+<div class="img-div">
+<h3>Contact for vest Places To visit</h3>
+   <img class="about-img" src="/Homepage/all-img/home2.jpg" alt="">
+</div>
+   <div class="form">
+    <h2 style="text-align: center;">Contact Form</h2>
+    <form>
+    
+      <input type="text" placeholder="User Name"><br>
+      
+      <input type="email" autocomplete="off" placeholder="Enter Your E-mail Id"><br>
+    
+      <input type="text" placeholder="Password"><br class="br1" >
+      <button class="btn1" onclick=" alert('Welcome To Amigo TOUR Plasa😍 \n You Registered.')">Submit</button>
+      <button class="btn2" onclick=" alert('Reset Your Responses !')">Reset</button>
+     </form>
+   </div>
+   <br class="br1" >
   <h3>Contact Information</h3>
-<p>66542587555©📞</p>
-<p>hjk@dfsfdfgmail.com</p>
+<p>📞 66542587555</p>
+<p>🧧amig5676@gmail.com</p>
+<p>📓 FD STREET</p>
 <hr>
-<footer>
+<footer id="ft">
   <p>All right reserved &#174; Copy Right &#169; &nbsp;&nbsp;&nbsp;Created by : Pushpanjali Yadav</p>
       
 </footer>
+<script src="/Homepage/script.js"></script>
 </body>
 </html>

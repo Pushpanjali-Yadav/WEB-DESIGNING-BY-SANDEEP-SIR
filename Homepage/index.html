@@ -2,41 +2,53 @@
 
 <html lang="en">
     <head>
-      <link rel="stylesheet" href="styles.css">
+      <!-- <link rel="stylesheet" href="styles.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
         <link href="styles.css" rel="stylesheet">
         <title>My Webpage</title>
     </head>
     <body>
         <header>
-           <marquee> <h2>AMIGO TOUR PLASA</h2></marquee>
-       <table>
-        <td width="20%"> <a href="/Homepage/about.html">ABOUT</a></td>
-    <td width="20%"> <a href="/Homepage/contact.html">CONTACT</a></td>
-    <td width="20%"> <a href="/Homepage/gallary.html">IMAGES</a></td>
-    <td width="20%"> <a href="/Homepage/index.html">INDEX</a></td>
+           <marquee scrollamount="15"> <h1>🔷🤩Welcome To The World Of Tourism🔷🤩</h1></marquee>
+          <div class="ih2"><h2>AMIGO <span>TOUR </span>PLASA</h2></div> 
+         
+       <table width="40%" cellpadding="2" cellspacing="0" align="right">
+        <td width="10%"><button onclick="change(event)"> <a href="/Homepage/index.html">INDEX</a></button></td>
+        <td width="10%"><button onclick="change(event)"> <a href="/Homepage/gallary.html">IMAGES</a></button></td>
+        <td width="10%"><button onclick="change(event)"> <a href="/Homepage/about.html">ABOUT</a></button></td>
+    <td width="10%"> <button  onclick="change(event)"><a href="/Homepage/contact.html">CONTACT</a></button></td>
        </table>
       </header>
-       <hr>
-       <img src="/Homepage/all-img/home1.jpg" alt="">
-       <h3>Let us plan you a
-        perfect India Holiday</h3>
-        <p>Custom-Crafted Tour Packages for Unforgettable Holiday Experiences in India.</p>
-        <video src="/Homepage/all-img/video.mp4"></video>
-        <h3>Types Of Places To VISIT</h3>
+      <br class="br1" >
+      <hr id="hr1">
+    
+       <img class="im-index" src="/Homepage/all-img/home1.jpg" alt="">
+ 
+    <div class="text-index">
+       <h3 class="value">Let Us Plan You a<br>
+        <span>Perfect   Holiday</span><br> Now</h3>
+    </div>
+        <video src="/Homepage/all-img/video.mp4" controls></video>
+        <div class="list">
+        <h3>Types Of Places To Visit</h3>
        <ul>
-        <li>Historical</li>
-        <li>Natural</li>
-        <li>Mountain</li>
-        <li>Forest</li>
-        <li>Cities</li>
+        <li>Ancient landmarks rich in cultural heritage</li>
+        <li>Quiet countryside villages surrounded by rolling hills
+
+        </li>
+        <li>Peaceful mountain towns with scenic hiking trails</li>
+        <li>Towering waterfalls hidden in lush green jungles
+
+        </li>
+        <li>Towering natural waterfalls</li>
        </ul>
+    </div>
+    <br class="br1">
        <hr>
-       <footer><p>All right reserved &#174; Copy Right &#169; &nbsp;&nbsp;&nbsp;Created by : Pushpanjali Yadav</p>
+       <footer id="ft"><p>All right reserved &#174; Copy Right &#169; &nbsp;&nbsp;&nbsp;Created by : Pushpanjali Yadav</p>
        </footer> 
         
-        
-    </header>
+    <script src="/Homepage/script.js"></script>
     </body>
 </html>

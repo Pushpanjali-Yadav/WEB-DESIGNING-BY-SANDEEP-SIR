@@ -1,11 +1,84 @@
 *{
-  margin: 0px;
+  margin: 10px;
   padding: 0px;
 }
 body{
   background-color: rgb(228, 218, 250);
 }
+h1{
+  margin: 30px;
+  font-size: 40px;
+  color: rgb(153, 12, 123);
+  
+}
 h3{
   font-size: 30px;
   color: rgb(255, 54, 54);
+  margin: 15px;
+
+}
+.ih2{
+  float: left;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(81, 134, 79);
+  
+}
+span{
+  color: rgb(224, 63, 22);
+}
+
+a{
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(14, 14, 219) ;
+}
+button{
+  padding:  5px 15px ;
+  border-radius: 10px;
+  background-color: rgb(180, 241, 216);
+}
+.br1{
+  clear: both;
+}
+#hr1{
+  height: 10px;
+  background-color: rgb(161, 53, 20);
+  margin: 5px;
+}
+.text-index, .value{
+  float: right;
+  margin: 20px 40px 0px 0px;
+  font-size: 60px;
+  color: rgb(14, 65, 12);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+  text-shadow: 20px;
+}
+.im-index{
+  width: 40%;
+  height: 30%;
+  margin: 20px;
+  
+}
+video{
+  width: 40%;
+  height: 20%;
+  margin: 10px 60px;
+  float: right
+}
+.list{
+  float: left;
+  margin: 20px;
+}
+.br1{
+  clear: both;
+}
+li{
+  font-size: 20px;
+  margin: 5px;
+color: rgb(10, 34, 172);
+}
+#ft{
+  color: red;
+  text-align: center;
 }
