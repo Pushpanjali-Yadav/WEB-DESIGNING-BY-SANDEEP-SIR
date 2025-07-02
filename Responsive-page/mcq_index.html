@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clean Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #f5f5f5;
+      resize: both;
+      overflow: auto;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+
+    .top1 {
+      height: 100px;
+      width: 30%;
+      background-color: rgb(115, 214, 214);
+    }
+
+    .top2 {
+      height: 100px;
+      width: 65%;
+      background-color: rgb(232, 154, 76);
+    }
+
+    .mid {
+      height: 270px;
+      width: 100%;
+      background-color: rgb(227, 86, 64);
+      margin-bottom: 20px;
+    }
+
+    .bottom-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .bottom {
+      flex: 1;
+      min-width: 250px;
+      height: 200px;
+      background-color: rgb(190, 187, 18);
+    }
+    @media  screen and (max-width: 700px) {
+      .bottom {
+     
+      width: 100px;
+      height: 150px;
+      background-color: rgb(190, 187, 18);
+    }
+
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top">
+      <div class="top1"></div>
+      <div class="top2"></div>
+    </div>
+
+    <div class="mid"></div>
+
+    <div class="bottom-row">
+      <div class="bottom"></div>
+      <div class="bottom"></div>
+      <div class="bottom"></div>
+    </div>
+  </div>
+</body>
+</html>
