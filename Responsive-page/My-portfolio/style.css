@@ -1,0 +1,147 @@
+ body {
+        background-color: #2e2f61;
+      }
+      .navbar-brand {
+        font-weight: bold;
+        color: #2e2f61;
+      }
+      span {
+        color: red;
+        font-size: 50px;
+      }
+      h2, h1 {
+        color: rgb(127, 231, 224);
+        font-size: 40px;
+        margin-top: 10px;
+      }
+      p {
+        color: white;
+        font-size: 20px;
+      }
+      .home-img {
+        max-width: 100%;
+        border: 2px solid rgb(153, 230, 229);
+       clip-path: ellipse(45% 50%);
+      }
+      .about-img img {
+        border-radius: 10%;
+        padding: 20px;
+        max-width: 100%;
+      }
+      .contact-form {
+        border-radius: 10px;
+        margin: 15px;
+        background-color: rgb(238, 234, 243);
+        color: black;
+        padding: 15px;
+      }
+     
+
+.about1 img{
+   
+    border-radius: 15%;
+}
+.about2{
+    flex-basis: 60%;
+}
+.subtitle{
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-family: Calibri solid black;
+    font-weight: 600;
+    color: aqua;
+    
+}
+#p1{
+    font-family: Times New Roman;
+    font-style: italic;
+    font-size: 25px;
+}
+.tab-titles{
+    display: flex;
+    margin: 20px 0 40px;
+}
+.tab-links{
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    
+}
+.tab-links::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: rgb(236, 21, 21);
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+
+}
+.tab-links.activelink::after{
+    width: 50%;
+}
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+}
+.tab-contents ul li span{
+    color: red;
+    font-size: 14px;
+}
+.tab-contents{display: none;}
+.tab-contents.active-tab{
+    display: block;
+}
+
+/* -----------------services----------------------------------- */
+#work{
+    padding: 30px 0;
+}
+
+.services-list div{
+    background: #343135;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-right: 10px;
+    transition:background 0.5s,transform 0.5s;
+    border-radius: 15px;
+}
+.services-list div h2{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.services-list div a{
+    text-decoration:underline;
+    color: rgb(237, 246, 240);
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+    
+}
+.services-list div:hover{
+    background: rgb(191, 7, 7);
+    transform: translate(-10px);
+}
+
+
+
+
+.copyright{
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background: #524e4e;
+    font-weight: 300;
+    margin-top: 15px;
+}
+
+/* contact */
+
+.mbtn2{
+    border-radius: 5%;
+}
