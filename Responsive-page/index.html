@@ -1,98 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-    }
-    .container{
-     
-      width: 100%;
-      height: 600px;
-      background-color: blanchedalmond;
-    }
-.top1{
-  height: 20%;
-  width: 30%;
-  
-  background-color: rgb(115, 214, 214);
-  float: left;
-}
-.top2{
-  height: 20%;
-  width: 70%;
-  /* margin: 20px 20px 20px 0px; */
-  background-color: rgb(232, 154, 76);
-  float: right;
-}
-.b{
-clear: both;
-}
-.mid{
-   height: 40%;
-  width: 100%;
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrollable Div with Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
 
-  background-color: rgb(227, 86, 64);
-  
-}
-.bottom{
-   height:40%;
-  width: 30%;
-  margin: 1%;
-  background-color: rgb(190, 187, 18);
-  float: left;
- 
-}
-
-@media  screen and (max-width: 500px) {
-
- .container{
-     
-      
-      background-color: rgb(146, 242, 102);
-    }
-    .bottom{
-   height:10%;
-  width: 100%;
-  margin-top: 1%;
-  
- 
-}
-}
-
-/* for phone */
-/* @media  screen and (max-width: 400px) {
-   .container{
-      box-sizing: border-box;
-      background-color: rgb(240, 240, 185);
-      
-   }
-
-.bottom{
-   height: 40%;
-  width: 100%;
-  margin: 0px 0px 10px 10px;
-  background-color: rgb(190, 187, 18);
-  float: none;
- 
-}
-   } */
-  </style>
-</head>
-<body>
-  <div class="container">
-  <div class="top1">1</div>
-  <div class="top2">2</div>
-  <br class="b">
-  <div class="mid">3</div>
-   <br class="b">
-  <div class="bottom">4</div>
-  <div class="bottom">5</div>
-  <div class="bottom"6></div>
-  </div>
-</body>
+      .scroll-container {
+        height: 100%; /* Fill the full height */
+        overflow-y: auto; /* Scrollbar appears when needed */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+        <div class="col-md-6 bg-light scroll-container">
+          <h4>Scrollable Div</h4>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+           <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+           <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <var>
+             <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+          </var>
+          <p>Content...</p>
+          <p>Content...</p>
+          <p>Content...</p>
+        </div>
+        <div class="col-md-6 bg-secondary text-white">
+          <p>This is another column.</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
