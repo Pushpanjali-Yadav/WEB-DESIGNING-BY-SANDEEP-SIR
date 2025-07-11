@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      
+    }
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      border: 5px solid black;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 50px 100px 50px 200px;
+      height: 500px;
+      width: 400px;
+       background-color: rgb(190, 190, 214);
+       float: left;
+      
+    }
+    input{
+      width: 350px;
+      height: 40px;
+      margin: 15px;
+      border: 3px solid rgb(254, 79, 79);
+      border-radius: 20px;
+      font-size: large;
+      padding-left: 20px;
+    }
+    #btn{
+       width: 120px;
+      height: 50px;
+     align-content: center;
+      border: 2px solid rgb(39, 57, 104);
+      background-color: green;
+      border-radius: 20px;
+      font-size: large;
+      margin-left: 150px;
+      padding: 10px;
+     
+      
+    }
+    p{
+      color: rgb(169, 22, 22);
+      font-weight: 300;
+     
+    }
+    h3{
+      margin-left: 120px;
+      color: rgb(39, 8, 130);
+    }
+    /* result box */
+    .final-result{
+width: 250px;
+height: 300px;
+margin-top: 150px ;
+margin-right:200px ;
+border: 3px solid black;
+background-color: rgb(147, 147, 152);
+float:right;
+
+    }
+    h2{
+padding: 10px 20px 10px 40px;
+    }
+  </style>
+  <!-- form validation -->
+   <div class="container">
+<form>
+  <h3>CONTACT FORM</h3>
+    <input type="text" placeholder="Full Name" id="n" onkeyup="checkName()" autocomplete="off"><br>
+    <p id="p1"></p>
+    <input type="text" placeholder="Email"  id="e" onkeyup="checkEmail()" autocomplete="off"><br>
+    <p id="p2"></p>
+    <input type="password" placeholder="password"  id="pass" onkeyup="checkPasswd()" autocomplete="off"><br>
+    <p id="p3"></p>
+     <input type="text" placeholder="Phone No." id="number" onkeyup="checkNumber()" autocomplete="off"><br>
+     <p id="p4"></p>
+    <input type="text" placeholder="City" id="c" onkeydown="checkCity()" autocomplete="off"><br>
+    <p id="p5"></p>
+    <input type="button" id="btn" value="Submit" onclick="result()">
+   </form>
+   </div>
+   <div class="final-result">
+<h2>Submited Details</h2>
+<p id="res"></p>
+   </div>
+</body>
+<script>
+  var uname, uemail,upasswd,unum,ucity;
+       function checkName(){
+     var name = document.getElementById("n").value;
+RegExp=/^[a-zA-Z\s]+$/;
+    if(!(name.length > 6 && RegExp.test(name))){
+      document.getElementById("p1").innerHTML = "Enter Valid Name."
+      n.style.borderColor="red";
+ 
+    }
+    else{
+        document.getElementById("n").style.borderColor="lightgreen";
+        p1.innerHTML = ""
+        uname = name;
+    }
+  }
+  //email check
+   function checkEmail(){
+     var email = document.getElementById("e").value;
+     RegExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!(RegExp.test(email))){
+      document.getElementById("p2").innerHTML = "Enter Valid Email-Id."
+      e.style.borderColor="red";
+ 
+    }
+    else{
+        document.getElementById("e").style.borderColor="lightgreen";
+        p2.innerHTML = ""
+        uemail = email;
+    }
+  }
+  //password check
+   function checkPasswd(){
+    var password = document.getElementById("pass").value;
+RegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{6,}$/;
+    if(!(RegExp.test(password))){
+      document.getElementById("p3").innerHTML = "Enter Your Valid Password."
+      pass.style.borderColor="red";
+ 
+    }
+    else{
+        document.getElementById("pass").style.borderColor="lightgreen";
+        p3.innerHTML = ""
+        upasswd = password;
+    }
+  }
+  //number check
+   function checkNumber(){
+     var num = document.getElementById("number").value;
+var RegExp =/^\d{10}$/;
+    if(!(RegExp.test(num))){
+      document.getElementById("p4").innerHTML = "Enter Your Valid Phone Number."
+      number.style.borderColor="red";
+ 
+    }
+    else{
+        document.getElementById("number").style.borderColor="lightgreen";
+        p4.innerHTML = ""
+        unum = num;
+    }
+  }
+ 
+//check city
+function checkCity()
+{
+  var city = document.getElementById("c").value;
+  if(city.length <= 2 ){
+      document.getElementById("p5").innerHTML = "Enter Your City Name."
+      c.style.borderColor="red";
+ 
+    }
+    else{
+        document.getElementById("c").style.borderColor="lightgreen";
+        p5.innerHTML = ""
+        ucity = city;
+    }
+
+  }
+
+//final result of all data submition
+//ERROR..........................................................????????????????????????????
+function result()
+{
+  if((uname.length !=0 && uemail.length !=0 && upasswd.length !=0 && unum.length != 0 && ucity.length !=0)){
+ document.getElementById("res").innerHTML = `Name:  ${uname}<br>Email-Id:  ${uemail}<br>Password:  ${upasswd}<br>Phone No:  ${unum}<br>City name:  ${ucity}`;
+  }
+ else{
+  document.getElementById("res").innerHTML ="FORM IS NOT COMPLETED...."
+ }
+}
+</script>
+</html>
