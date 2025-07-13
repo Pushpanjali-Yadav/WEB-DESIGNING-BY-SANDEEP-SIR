@@ -65,19 +65,28 @@ height: 300px;
 margin-top: 150px ;
 margin-right:200px ;
 border: 3px solid black;
-background-color: rgb(147, 147, 152);
+background-color: rgb(206, 206, 212);
 float:right;
 
     }
     h2{
 padding: 10px 20px 10px 40px;
     }
+   .final-result p{
+    color: rgb(118, 15, 15);
+    font-size: medium;
+    font-family: Arial;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: bold;
+    
+   } 
   </style>
   <!-- form validation -->
    <div class="container">
 <form>
   <h3>CONTACT FORM</h3>
-    <input type="text" placeholder="Full Name" id="n" onkeyup="checkName()" autocomplete="off"><br>
+    <input type="text" placeholder="Full Name" id="n" onkeyup="checkName()" autocomplete="off" ><br>
     <p id="p1"></p>
     <input type="text" placeholder="Email"  id="e" onkeyup="checkEmail()" autocomplete="off"><br>
     <p id="p2"></p>
@@ -91,12 +100,12 @@ padding: 10px 20px 10px 40px;
    </form>
    </div>
    <div class="final-result">
-<h2>Submited Details</h2>
-<p id="res"></p>
+<h2>Submit Details</h2>
+<b><p id="res"></p></b>
    </div>
 </body>
 <script>
-  var uname, uemail,upasswd,unum,ucity;
+  var uname="", uemail="",upasswd="",unum="",ucity="";
        function checkName(){
      var name = document.getElementById("n").value;
 RegExp=/^[a-zA-Z\s]+$/;
@@ -161,7 +170,7 @@ var RegExp =/^\d{10}$/;
 function checkCity()
 {
   var city = document.getElementById("c").value;
-  if(city.length <= 2 ){
+  if(city.length < 2 ){
       document.getElementById("p5").innerHTML = "Enter Your City Name."
       c.style.borderColor="red";
  
@@ -178,12 +187,12 @@ function checkCity()
 //ERROR..........................................................????????????????????????????
 function result()
 {
-  if((uname.length !=0 && uemail.length !=0 && upasswd.length !=0 && unum.length != 0 && ucity.length !=0)){
+  // if((uname.length !=0 && uemail.length !=0 && upasswd.length !=0 && unum.length != 0 && ucity.length !=0)){
  document.getElementById("res").innerHTML = `Name:  ${uname}<br>Email-Id:  ${uemail}<br>Password:  ${upasswd}<br>Phone No:  ${unum}<br>City name:  ${ucity}`;
-  }
- else{
-  document.getElementById("res").innerHTML ="FORM IS NOT COMPLETED...."
- }
+//   }
+//  else{
+//   document.getElementById("res").innerHTML ="FORM IS NOT COMPLETED...."
+//  }
 }
 </script>
 </html>

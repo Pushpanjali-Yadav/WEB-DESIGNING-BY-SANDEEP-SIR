@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <div id="box1"></div>
+  <div id="box2"></div>
+  <div id="box3"></div>
+</body>
+<script>
+  //creating element for box1............
+  const box1=document.getElementById("box1");
+  const form =document.createElement("form");
+  const uname=document.createElement("input"); 
+  const email=document.createElement("input"); 
+  const city=document.createElement("input"); 
+ const btn=document.createElement("input"); 
+ const head2 =document.createElement("h2");
+  
+  //appending in box1..............
+box1.append(head2);
+form.append(uname);
+form.append(email);
+form.append(city);
+form.append(btn);
+box1.append(form);
+//asigning another attributes in box1 childs...........
+head2.innerHTML="Login Form"
+head2.style.marginLeft="70px"
+head2.style.color="red";
+box1.style.float="left";
+box1.style.width="300px";
+box1.style.height="350px";
+box1.style.padding="25px";
+box1.style.backgroundColor="lightblue";
+uname.style.width="280px";
+uname.style.height="40px";
+uname.style.marginBottom="20px";
+uname.placeholder = " User name";
+uname.autocomplete="off";
+email.style.width="280px";
+email.style.height="40px";
+email.style.marginBottom="20px";
+email.placeholder = " Email Id";
+email.autocomplete="off";
+city.style.width="280px";
+city.style.height="40px";
+city.style.marginBottom="20px";
+city.placeholder = " City";
+city.autocomplete="off";
+btn.type="button";
+btn.value="Next";
+btn.style.width="100px";
+btn.style.height="40px";
+city.style.width="280px";
+btn.style.marginLeft="80px";
+
+//creating element for box2.............
+btn.addEventListener("click",function(){
+  //validation befor showing next content..............
+  emailvalid=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  namevalid=/^[a-zA-Z\s]+$/;
+  cityvalid=/^[a-zA-Z\s]+$/;
+  if(emailvalid.test(email.value) && namevalid.test(uname.value) && cityvalid.test(city.value)){
+    //creating element for box2....
+  const box2 = document.getElementById("box2");
+  const form2 = document.createElement("form");
+    const head2 = document.createElement("h2");
+  const headbatch = document.createElement("h3");
+ const headrollno = document.createElement("h3");
+ const headcourse = document.createElement("h3");
+ 
+  const rollno = document.createElement("input");
+ const course = document.createElement("input");
+  /* const b1 = document.createElement("input");
+  const b2 = document.createElement("input");  */
+   const btn2 = document.createElement("input");
+   //paragragh tag for radio text
+   const pb1 = document.createElement("p");
+   const pb2= document.createElement("p");
+
+//adding other attributes in box2
+head2.innerHTML="Additional Information";
+headrollno.innerHTML="Your rollno: ";
+headcourse.innerHTML="Your course: ";
+// headbatch.innerHTML="Choose your batch";
+
+//appending element in box2.............
+box2.append(head2);
+form2.append(headrollno);
+form2.append(rollno);
+form2.append(headcourse);
+form2.append(course);
+form2.append(headbatch);
+/*  form2.append(b1);
+form2.append(b2);  */
+form2.append(btn2);
+box2.append(form2);
+//btn attributes...
+box2.style.margin="20px";
+box2.style.float="left";
+box2.style.width="300px";
+box2.style.height="350px";
+box2.style.backgroundColor="tomato";
+box2.style.paddingLeft="20px";
+box2.style.border="3px solid red";
+box2.style.borderRadius="20px"
+//input styling..
+rollno.style.width="250px";
+rollno.style.height="35px";
+rollno.style.marginBottom="10px";
+rollno.style.borderRadius="5px"
+rollno.placeholder = "Roll No.";
+rollno.autocomplete="off";
+//.....
+course.style.width="250px";
+course.style.height="35px";
+course.style.marginBottom="10px";
+course.style.borderRadius="5px"
+course.placeholder = "Course name";
+course.autocomplete="off";
+//radio btn for batch
+
+/* b1.name="Batch";
+b1.type="radio";
+b1.level="2023-2026"
+b1.value="2023-2026"
+b2.name="Batch";
+b2.type="radio";
+b2.level="2024-2027"
+b2.value="2024-2027" */
+
+//button details.....
+btn2.value="Submit";
+btn2.type="button";
+btn2.style.width="100px";
+btn2.style.height="40px";
+btn2.style.marginLeft="80px";
+btn2.style.backgroundColor="green";
+
+//BOX3 FOR DATA SHOWING...........
+btn2.addEventListener("click",function(){
+ box3=document.getElementById("box3");
+box3.style.float="right";
+box3.style.width="600px";
+box3.style.height="350px";
+box3.style.border="3px solid black";
+box3.style.borderRadius="5px";
+const h1 =document.createElement("h1");
+h1.innerHTML="hellodfdfddd";
+box3.append(h1);
+}); 
+} 
+
+});
+</script>
+</html>
