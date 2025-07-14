@@ -143,15 +143,57 @@ btn2.style.backgroundColor="green";
 
 //BOX3 FOR DATA SHOWING...........
 btn2.addEventListener("click",function(){
- box3=document.getElementById("box3");
+  if( rollno.value > 0 && namevalid.test(course.value)){
+    //creating elements........
+box3=document.getElementById("box3");
+const rtable = document.createElement("table");
+const row =document.createElement("tr");
+const col1 =document.createElement("td");
+const col2 =document.createElement("td");
+const col3 =document.createElement("td");
+const col4 =document.createElement("td");
+const col5 =document.createElement("td");
+
+//values...
+col1.innerHTML=uname.value;
+col2.innerHTML=rollno.value;
+col3.innerHTML=course.value;
+col4.innerHTML=email.value;
+col5.innerHTML=city.value;
+
+//other attributes...
 box3.style.float="right";
-box3.style.width="600px";
-box3.style.height="350px";
+box3.style.width="550px";
+rtable.style.border="1px solid black";
+col1.style.fontSize="20px";
+col2.style.fontSize="20px";
+col3.style.fontSize="20px";
+col4.style.fontSize="20px";
+col5.style.fontSize="20px";
+col1.style.border = "1px solid black";
+col2.style.border = "1px solid black";
+col3.style.border = "1px solid black";
+col4.style.border = "1px solid black";
+col5.style.border = "1px solid black";
+col1.style.padding = "5px";
+col2.style.padding = "5px";
+col3.style.padding = "5px";
+col4.style.padding = "5px";
+col5.style.padding = "5px";
 box3.style.border="3px solid black";
 box3.style.borderRadius="5px";
-const h1 =document.createElement("h1");
-h1.innerHTML="hellodfdfddd";
-box3.append(h1);
+
+
+//appending in box3.....
+row.appendChild(col1);
+row.appendChild(col2);
+row.appendChild(col3);
+row.appendChild(col4);
+row.appendChild(col5);
+rtable.append(row);
+box3.append(rtable);
+}
+ 
 }); 
 } 
 
