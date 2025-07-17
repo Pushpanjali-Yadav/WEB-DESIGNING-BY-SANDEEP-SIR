@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="enter your value: " id="first" />
+    <input type="button" id="btn" onclick="add()" value="  Add  " />
+    <input type="button" id="btn2" onclick="remove()" value="Remove" />
+    <div id="h"></div>
+  </body>
+  <script>
+    //creating elements
+    const box = document.getElementById("h");
+    var val;
+    //creating array
+    var arr = [];
+    function add() {
+      const data = document.getElementById("first").value;
+      var flag = false
+
+      //checking duplicate values............
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i] == data) {
+          flag = true;
+          break;
+        } 
+      }
+      if(flag == false)
+      {
+arr.push(data);
+      }
+      else
+      alert("value already exist.");
+
+      display()
+    }
+    const display = () => {
+      const head = document.createElement("h1");
+      for (i = 0; i < arr.length; i++) {
+      head.innerHTML = arr[i];
+      box.append(head);
+   
+      }
+          };
+    function remove() {
+      arr.pop();
+   
+    }
+   
+  </script>
+</html>

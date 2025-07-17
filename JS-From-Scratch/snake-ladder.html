@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chessboard</title>
+  <style>
+    #box {
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+      height: 600px;
+      border: 5px solid #000;
+    }
+    .row {
+      display: flex;
+      flex: 1;
+    }
+    .col {
+      width: 70px;
+      height: 50px;
+      padding-top: 10px;
+      padding-left: 10px;
+    }
+    .white {
+      background-color: white;
+    }
+    .black {
+      background-color: rgb(197, 18, 18);
+    }
+  </style>
+</head>
+<body>
+
+<div id="box"></div>
+
+<script>
+  const box = document.getElementById("box");
+var max=100,min=91,count=100;
+  for (let i = 0; i < 10; i++) {
+    const row = document.createElement("div");
+    row.className = "row";
+
+    for (let j = 1; j <= 10; j++) {
+      const col = document.createElement("div");
+     col.classList.add("col");
+
+      // Use if...else for alternating color
+      if ((i + j) % 2 === 0) {
+        col.classList.add("white");
+    
+      } else {
+        col.classList.add("black");
+      }
+   //max min possition
+if(j%2!=0){
+  col.innerHTML=count;  
+count=count+1;
+}
+else{
+col.innerHTML=count;  
+count=count+1;
+}
+
+
+  
+      row.appendChild(col);
+    }
+  
+        max=max-10;
+        min=min-10;
+      if(i%2!=0){count=max;}  
+      else{count=min}  
+    box.appendChild(row);
+  }
+</script>
+
+</body>
+</html>
