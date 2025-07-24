@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+      *{
+        margin: 0px;
+        padding: 0px;
+      }
+      .main{
+        margin: 0px;
+        padding: 0px;
+      }
+      body{
+        background-color: rgb(194, 202, 211);
+      }
+      .bg{
+        background-color: rgb(189, 224, 182);
+      }
+      #t1{
+        color: tomato;
+        font-weight: bolder;
+        padding: 5px;
+        margin: 20px 5px;
+      }
+      #t5{
+        width: auto;
+        height: 350px;
+        border-radius: 80%;
+        border-bottom: 10px solid rgb(209, 41, 41);
+        border-top: 10px solid orange;
+        margin-top: 20px;
+        background-color: rgb(246, 244, 241);
+      }
+      #t4{
+        color: black;
+        font-style: italic;
+        font-size: small;
+        text-align: justify;
+        padding-left: 20px;
+      }
+      
+      #t2 ,#t3{
+           font-size:large;
+           font-weight: bold;
+           font-family: sans-serif;
+           padding-left: 10px;
+           color: chocolate;
+      }
+      video{
+        border: 5px solid rgb(89, 82, 82);
+        padding: 0px;
+        border-radius: 5px;
+      }
+      .row2{
+        margin-bottom: 3%;
+        padding-left: 10px;
+      }
+      #ingredient-box{
+        padding: 20px;
+        margin-left: 10px;
+        
+      }
+      #ihead{
+        padding: 10px;
+        font-weight: 600;
+        color: rgb(202, 72, 16);
+      }
+      #right-box{
+  background-color: white;
+  box-sizing: border-box;
+  gap: 5px;
+  overflow-y: auto;
+  justify-content: center;
+  }
+      .copyright{
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+    background: #787171;
+    font-weight:300;
+    margin: 0px;
+    color: rgb(241, 240, 240);
+}
+     
+    </style>
+</head>
+<body>
+  <nav class="navbar bg bg-opacity-25 shadow-sm">
+    <div class="container-fluid">
+      <a href="/JS-From-Scratch/API-frontpage.html" class="navbar-brand fw-bold">🍽️ Food Ingredient</a>
+      
+        <a href="/JS-From-Scratch/API-frontpage.html"><button id="btn" class="btn btn-primary">Go Back</button></a>
+      </div>
+    </div>
+  </nav>
+  <!-- body starts... -->
+<div class="container-fluid main row">
+<div id="box" class="col container-fluid" >
+    <h1 id="t1"></h1>
+    <h2 id="t2"></h2>
+    <h3 id="t3"></h3>
+  <div class="t row">
+      <p id="t4" class="col"></p>
+      <img id="t5" class="col" m-2 src="" alt="">
+  </div>
+  <div class="row2 row">
+    
+     <div id="t6" class="col"> <h3 style="color: rgb(222, 56, 26); margin-bottom: 30px;">Watch The Process Now </h3></div>
+     <div id="ingredient-box" class="col ">
+     </div>
+       
+  </div>
+</div>
+<div id="right-box" class="col-2   container-fluid">
+<!-- b1 -->
+ <div class="card" style="width: 18rem;">
+  <img src="/first.jpeg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">welcome to Food Blogger <a href="https://www.dreamstime.com/photos-images/food-blogger.html">More about</a></p>
+  </div>
+</div>
+ <!-- b2 --><div class="card" style="width: 18rem;">
+  <img src="/images.jpeg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Food Blogger <a href="https://www.dreamstime.com/photos-images/food-blogger.html">See more about</a></p>
+  </div>
+</div>
+  <!-- b3 -->
+<div class="card" style="width: 18rem;">
+  <img src="/first.jpeg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Food Blogger unstopable<a href="https://www.dreamstime.com/photos-images/food-blogger.html">watch now</a></p>
+  </div>
+</div>
+</div>
+</div>
+<footer>
+<div class="copyright">
+        
+       <p>Copyright @ Pushpanjali.<i class="fa-solid fa-heart"></i> Made for web-project</p>
+    </div>
+ </div>
+    </footer>
+</body>
+<script>
+  const box = document.getElementById("box");
+  const rightbox =document.getElementById("right-box");
+  const main=document.getElementsByClassName("main ")
+const t1 =document.getElementById("t1");
+const t2 =document.getElementById("t2");
+const t3 =document.getElementById("t3");
+const t4 =document.getElementById("t4");
+const img =document.getElementById("t5");
+const video =document.getElementById("t6");
+const ingbox = document.getElementById("ingredient-box");
+const fun = async()=>{
+const params = new URLSearchParams(window.location.search);
+const mealId = params.get("mealId");
+//element creation...
+
+
+
+ const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`);
+      const data = await res.json();
+       const obj = data.meals[0];
+       console.log(obj);
+//adding in div box.........
+
+t1.innerHTML=obj.strMeal;
+t2.innerHTML= ` Category ${obj.strCategory}`;
+t3.innerHTML=` Food Area ${obj.strArea}`;
+t4.innerHTML=`<h3>Description</h3> ${obj.strInstructions}`;      
+ img.src=obj.strMealThumb;
+//adding video.........
+const videoId = obj.strYoutube.split("v=")[1]; // Extract YouTube video ID
+const iframe = document.createElement("iframe");
+iframe.width = "405";
+iframe.height = "250";
+iframe.src = `https://www.youtube.com/embed/${videoId}`;
+iframe.allowFullscreen = true;
+video.appendChild(iframe)
+//extracting strIngredients and its strMeasure......
+ingbox.innerHTML="" 
+ ingbox.innerHTML=`<h3 id="ihead">Ingredien Details</h3>`
+for(i=1;i<=20;i++){
+  if((obj[`strIngredient${i}`].length  )>=2 ){
+const Ingredient=obj[`strIngredient${i}`]
+;
+const measure = obj[`strMeasure${i}`]
+;
+ingbox.innerHTML+=`${Ingredient} = ${measure} <br>`
+}
+else{
+  break;
+}
+}
+}
+fun();
+
+     
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

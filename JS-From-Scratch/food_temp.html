@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Menu</title>
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  
+  <!-- Animate.css CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fdfaf6;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    nav.navbar {
+      background: linear-gradient(to right, #a8edea, #fed6e3);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    #hbar {
+      background-color: #eef2fb;
+      padding: 10px;
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #hbar button {
+      margin: 0 5px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #d5e4f3;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #hbar button:hover {
+      background-color: #8fbbe7;
+      transform: translateY(-2px);
+    }
+
+    #box {
+      padding: 20px 20px 40px;
+      background-color: #fffefb;
+    }
+
+    h2 {
+      color: #e74c3c;
+      font-weight: 700;
+      text-align: center;
+      margin: 30px 0 20px;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px #f3d9d9;
+    }
+
+    #f1 {
+      height: 300px;
+      max-width: 100%;
+      border-radius: 20px;
+      display: block;
+      margin: 0 auto 30px;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .form-inline input {
+      padding: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 150px;
+    }
+
+    .form-inline button {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg shadow-sm px-4">
+    <a class="navbar-brand" href="/JS-From-Scratch/API-frontpage.html">🍽️ Food Menu</a>
+    <div class="ms-auto">
+      <form onsubmit="return false;" class="form-inline d-flex align-items-center gap-2">
+        <input list="ctr" id="browser" placeholder="Category By Area" />
+        <datalist id="ctr"></datalist>
+        <button id="btn" class="btn btn-outline-primary btn-sm">Show</button>
+      </form>
+    </div>
+  </nav>
+
+  <!-- Category Buttons -->
+  <div id="hbar"></div>
+
+  <!-- Meals Display -->
+  <div id="box" class="container-fluid">
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const box = document.getElementById("box");
+    const btn = document.getElementById("btn");
+
+    // Load area list
+    async function area() {
+      const res = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?a=list");
+      const data = await res.json();
+      let opt = "";
+      for (let itm of data.meals) {
+        opt += `<option value="${itm.strArea}">`;
+      }
+      document.getElementById("ctr").innerHTML = opt;
+    }
+
+    // Load categories as animated buttons
+    async function categories() {
+      const hbar = document.getElementById("hbar");
+      const res = await fetch("https://www.themealdb.com/api/json/v1/1/list.php?c=list");
+      const data = await res.json();
+      for (let itm of data.meals) {
+        const btn = document.createElement("button");
+        btn.textContent = itm.strCategory;
+        btn.classList.add("animate__animated", "animate__fadeInUp");
+        btn.addEventListener("click", () => showByCategory(itm.strCategory));
+        hbar.appendChild(btn);
+      }
+    }
+
+    // Show meals by selected area
+    async function show() {
+      const val = document.getElementById("browser").value;
+      if (!val) return;
+      box.innerHTML = "";
+      const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${val}`);
+      const data = await res.json();
+      displayMeals(data.meals, `${val} Cuisine`);
+    }
+
+    // Show meals by category
+    async function showByCategory(category) {
+      box.innerHTML = "";
+      const res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+      const data = await res.json();
+      displayMeals(data.meals, `${category} Meals`);
+    }
+//url of frontpage to show categories here.......
+async function fromFirst() {
+  const params = new URLSearchParams(window.location.search);
+const category = params.get("c");
+  showByCategory(category);
+
+}
+ document.addEventListener("DOMContentLoaded", fromFirst);
+    // Display meals as animated cards
+    function displayMeals(meals, subtitle) {
+      let cards = `<h2 class="animate__animated animate__fadeIn">${subtitle.toUpperCase()}</h2><div class="row g-4">`;
+      for (let meal of meals) {
+        cards += `
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm animate__animated animate__zoomIn">
+              <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}">
+              <div class="card-body">
+                <h5 class="card-title">${meal.strMeal}</h5>
+                <p class="card-text">${subtitle}</p>
+                <a href="/JS-From-Scratch/demoPage.html?mealId=${meal.idMeal}" class="btn btn-outline-primary btn-sm">See Ingredients</a>
+              </div>
+            </div>
+          </div>`;
+      }
+      cards += `</div>`;
+      box.innerHTML = cards;
+    }
+
+  
+        // Initial load
+window.addEventListener("DOMContentLoaded", () => {
+  fromFirst(); 
+  categories();
+  area();
+  show();
+});
+
+  </script>
+
+  <!-- Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
