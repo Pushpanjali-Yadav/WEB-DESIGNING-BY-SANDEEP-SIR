@@ -7,7 +7,7 @@
 
   <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Animate.css CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
@@ -19,7 +19,7 @@
     }
 
     body {
-      background-color: #fdfaf6;
+      background: linear-gradient(to bottom right, #c9ac8c, #204891);
       font-family: 'Segoe UI', sans-serif;
     }
 
@@ -58,17 +58,18 @@
 
     #box {
       padding: 20px 20px 40px;
-      background-color: #fffefb;
+       background: linear-gradient(to right, #ddc3a8, #657faf);
     }
 
     h2 {
-      color: #e74c3c;
+      color: #ce3524;
       font-weight: 700;
       text-align: center;
       margin: 30px 0 20px;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       letter-spacing: 1px;
       text-shadow: 1px 1px 2px #f3d9d9;
+      text-shadow: #d5e4f3 ;
     }
 
     #f1 {
@@ -121,7 +122,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg shadow-sm px-4">
-    <a class="navbar-brand" href="/JS-From-Scratch/API-frontpage.html">🍽️ Food Menu</a>
+    <a class="navbar-brand" href="/JS-From-Scratch/API-frontpage.html" style="font-size: x-large;">🍽️ Food Menu 🥧</a>
     <div class="ms-auto">
       <form onsubmit="return false;" class="form-inline d-flex align-items-center gap-2">
         <input list="ctr" id="browser" placeholder="Category By Area" />
@@ -193,7 +194,7 @@ const category = params.get("c");
   showByCategory(category);
 
 }
- document.addEventListener("DOMContentLoaded", fromFirst);
+
     // Display meals as animated cards
     function displayMeals(meals, subtitle) {
       let cards = `<h2 class="animate__animated animate__fadeIn">${subtitle.toUpperCase()}</h2><div class="row g-4">`;
@@ -220,7 +221,6 @@ window.addEventListener("DOMContentLoaded", () => {
   fromFirst(); 
   categories();
   area();
-  show();
 });
 
   </script>

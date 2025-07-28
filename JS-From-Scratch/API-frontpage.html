@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Food Menu</title>
+
+  <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    body {
-      background: linear-gradient(to bottom right, #fdfbfb, #7092a3);
-    }
+body{
+  display: flex;
+  flex-direction: column;
+ background: linear-gradient(to  right, #c9ac8c, #204891);
+}
 
     .myimg {
-      width: 100%;
+      width: 99%;
       height: 150px;
-      object-fit: cover;
+      object-fit:contain;
       transition: transform 0.5s ease-in-out, opacity 0.4s ease;
       border-radius: 8px 8px 0 0;
     }
 
-    
-      .card {
-  border-radius: 30% 5%;
-  width: 100%;
-  max-width: 220px;
-      overflow: hidden;
-      background-color: #f6ececf3;
-      box-shadow: 0 2px 6px rgba(250, 214, 166, 0.5);
-      transition: transform 0.5s ease, box-shadow 0.4s ease;
-      animation: floatCard 4s ease-in-out infinite;
+    .card {
+      border-radius: 20%;
+      width: 100%;
+      max-width: 100%;
+      
+      background: linear-gradient(to bottom right, #fafff9, #8cb4da);
+      box-shadow: 0 2px 6px rgba(179, 85, 233, 0.9);
+      transition: transform 0.5s ease, box-shadow 0.6s ease;
+      animation: floatCard 6s ease-in-out infinite;
     }
 
     .card:hover .myimg {
@@ -43,41 +46,57 @@
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    @keyframes floatCard {
-      0% { transform: translateX(0px); }
-      50% { transform: translateX(-5px); }
-      100% { transform: translateX(0px); }
+      box-shadow: 0 6px 20px rgba(151, 177, 196, 0.8);
     }
 
     .card-title {
-      font-size: 1rem;
+      font-size: large;
       font-weight: 600;
-      margin-top: 8px;
+      margin-top: 4px;
     }
+      .bg{
+         background: linear-gradient(to right, #a8edea, #fed6e3);
+      }
+    footer{
+    width: 100%;
+    text-align: center;
+    padding: 0px;
+    background: #787171;
+    font-weight:500;
+    margin: 0px;
+    padding-top: 5px;
+    color: white;
+}
+   
   </style>
 </head>
 <body>
-  <nav class="navbar bg-success bg-opacity-25 shadow-sm">
+
+  <!-- Navbar -->
+   <nav class="navbar bg bg-opacity-25 shadow-sm">
     <div class="container-fluid">
-      <a href="#" class="navbar-brand fw-bold">🍽️ Food Menu</a>
-      <div class="d-flex gap-2">
-        <form onsubmit="return false;">
-          <input list="ctr" id="browser" placeholder="Select Country" autocomplete="off">
-          <datalist id="ctr"></datalist>
-          <button id="btn" class="btn btn-primary">Show</button>
-        </form>
+      <a href="/JS-From-Scratch/API-frontpage.html" class="navbar-brand fw-bold" style="font-size: xx-large;">🍽️ Food Menu🥧</a>
+      
+        <a href="/JS-From-Scratch/index.html"><button id="btn" class="btn btn-primary">Go Back</button></a>
+        <i class="fa-solid fa-user"></i>
       </div>
     </div>
   </nav>
 
-  <div class="container mt-4">
-  <div class="row justify-content-center" id="box"></div>
-</div>
 
 
+  <!-- Content -->
+  <div class="container mt-5">
+    <div class="row g-4" id="box"></div>
+  </div>
+<footer>
+<div class="copyright">
+        
+       <p>Copyright @ Pushpanjali.<i class="fa-solid fa-heart" style="color: red;"></i> Made for web-project:: Project name is "World Food Menu"</p>
+    </div>
+    </footer>
+</body>
+ <!-- JS -->
   <script>
     const box = document.getElementById("box");
 
@@ -87,18 +106,21 @@
       let card = ``;
 
       for (const itm of data.categories) {
+        if(itm.idCategory == 13 || itm.idCategory == 14 ){
+          continue;
+        }
         card += `
-          <div class="col-6 col-md-4 col-lg-3 mb-4">
-            <a href="/JS-From-Scratch/food_temp.html?c=${encodeURIComponent(itm.strCategory)}">
-            <div class="card h-100 text-center">
-              <img src="${itm.strCategoryThumb}" class="card-img-top myimg" alt="${itm.strCategory}">
-              <div class="card-body">
-                <h5 class="card-title">${itm.strCategory}</h5>
+          <div class="col-6 col-md-4 col-lg-2">
+            <a href="/JS-From-Scratch/food_temp.html?c=${encodeURIComponent(itm.strCategory)}" class="text-decoration-none text-dark">
+              <div class="card h-100 w-100  text-center">
+                <img src="${itm.strCategoryThumb}" class="card-img-top myimg" alt="${itm.strCategory}">
+                <div class="card-body">
+                  <h3 class="card-title">${itm.strCategory}</h3>
+                </div>
               </div>
-            </div>
             </a>
-          </div>`
-         ;
+          </div>
+        `;
       }
 
       box.innerHTML = card;
@@ -108,5 +130,4 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 </html>

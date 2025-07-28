@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Bubbles</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to top, #0f2027, #203a43, #2c5364); /* watery background */
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: floatUp 5s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function createBubble() {
+    const bubble = document.createElement("div");
+    bubble.classList.add("bubble");
+
+    // Random horizontal position
+    bubble.style.left = Math.random() * window.innerWidth + "px";
+
+    // Random size
+    const size = Math.random() * 20 + 10; // 10px to 30px
+    bubble.style.width = size + "px";
+    bubble.style.height = size + "px";
+
+    // Random animation duration
+    const duration = Math.random() * 3 + 4; // 4s to 7s
+    bubble.style.animationDuration = duration + "s";
+
+    document.body.appendChild(bubble);
+
+    // Remove bubble after it finishes animation
+    setTimeout(() => {
+      bubble.remove();
+    }, duration * 1000);
+  }
+
+  // Create bubbles repeatedly
+  setInterval(createBubble, 300); // Every 300ms
+</script>
+
+</body>
+</html>
