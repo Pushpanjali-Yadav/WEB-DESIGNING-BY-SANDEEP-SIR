@@ -1,0 +1,119 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #c9ac8c, #204891);
+      font-family: 'Segoe UI', sans-serif;
+    }
+      #icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    
+    padding: 0;
+  }
+
+    nav.navbar {
+      background: linear-gradient(to right, #a8edea, #fed6e3);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    #hbar {
+      background-color: #eef2fb;
+      padding: 10px;
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #hbar button {
+      margin: 0 5px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #d5e4f3;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #hbar button:hover {
+      background-color: #8fbbe7;
+      transform: translateY(-2px);
+    }
+
+    #box {
+      padding: 20px 20px 40px;
+       background: linear-gradient(to right, #ddc3a8, #657faf);
+    }
+
+    h2 {
+      color: #ce3524;
+      font-weight: 700;
+      text-align: center;
+      margin: 30px 0 20px;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 2px #f3d9d9;
+      text-shadow: #d5e4f3 ;
+    }
+
+    #f1 {
+      height: 300px;
+      max-width: 100%;
+      border-radius: 20px;
+      display: block;
+      margin: 0 auto 30px;
+      object-fit: cover;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .form-inline input {
+      padding: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 150px;
+    }
+
+    .form-inline button {
+      margin-left: 5px;
+    }
+      #btnnav{
+    color:black;
+    background-color: azure;
+    border-radius: 50%;
+    font-size: x-large;
+   }

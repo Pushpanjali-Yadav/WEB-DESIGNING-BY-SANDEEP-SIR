@@ -7,7 +7,8 @@
 
   <!-- Bootstrap CDN -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
-
+<!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     * {
       margin: 0;
@@ -17,7 +18,7 @@
 body{
   display: flex;
   flex-direction: column;
- background: linear-gradient(to  right, #c9ac8c, #204891);
+ background: linear-gradient(to bottom right, #c9ac8c, #204891);
 }
 
     .myimg {
@@ -29,11 +30,11 @@ body{
     }
 
     .card {
-      border-radius: 20%;
+      border-radius: 20px;
       width: 100%;
       max-width: 100%;
       
-      background: linear-gradient(to bottom right, #fafff9, #8cb4da);
+      background: linear-gradient(to bottom , #f1f7f6, #dee3ec);
       box-shadow: 0 2px 6px rgba(179, 85, 233, 0.9);
       transition: transform 0.5s ease, box-shadow 0.6s ease;
       animation: floatCard 6s ease-in-out infinite;
@@ -57,6 +58,18 @@ body{
       .bg{
          background: linear-gradient(to right, #a8edea, #fed6e3);
       }
+   #btn{
+    color:black;
+    background-color: azure;
+    border-radius: 50%;
+    font-size: xx-large;
+   }
+  .fat{
+    font-weight: 700;
+    color: rgb(41, 41, 212);
+    font-size: x-larger;
+  }
+
     footer{
     width: 100%;
     text-align: center;
@@ -75,12 +88,13 @@ body{
   <!-- Navbar -->
    <nav class="navbar bg bg-opacity-25 shadow-sm">
     <div class="container-fluid">
-      <a href="/JS-From-Scratch/API-frontpage.html" class="navbar-brand fw-bold" style="font-size: xx-large;">🍽️ Food Menu🥧</a>
+      <a href="/JS-From-Scratch/index.html" class="navbar-brand fw-bold" style="font-size: xx-large;">🍽️ World Flavors🥧</a>
       
-        <a href="/JS-From-Scratch/index.html"><button id="btn" class="btn btn-primary">Go Back</button></a>
-        <i class="fa-solid fa-user"></i>
-      </div>
-    </div>
+     <div>
+  
+        <a href="/JS-From-Scratch/index.html"><button id="btn" class="btn btn-primary"><i class="fa-solid fa-user"></i></button> </a>
+       </div>
+       </div>
   </nav>
 
 
@@ -89,7 +103,7 @@ body{
   <div class="container mt-5">
     <div class="row g-4" id="box"></div>
   </div>
-<footer>
+<footer  style="margin-bottom: 0; margin-top: 30px;">
 <div class="copyright">
         
        <p>Copyright @ Pushpanjali.<i class="fa-solid fa-heart" style="color: red;"></i> Made for web-project:: Project name is "World Food Menu"</p>
@@ -110,7 +124,7 @@ body{
           continue;
         }
         card += `
-          <div class="col-6 col-md-4 col-lg-2">
+          <div class="col-6 col-md-4 col-lg-3">
             <a href="/JS-From-Scratch/food_temp.html?c=${encodeURIComponent(itm.strCategory)}" class="text-decoration-none text-dark">
               <div class="card h-100 w-100  text-center">
                 <img src="${itm.strCategoryThumb}" class="card-img-top myimg" alt="${itm.strCategory}">
@@ -122,6 +136,9 @@ body{
           </div>
         `;
       }
+
+   
+
 
       box.innerHTML = card;
     }

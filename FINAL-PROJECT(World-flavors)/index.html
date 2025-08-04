@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="/FINAL-PROJECT(World-flavors)/icon.png" type="image/x-icon">
+  <title>World Flavors</title>
+  <link rel="stylesheet" href="index-caterories-style.css">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="container-main">
+    <nav class="navbar bg bg-opacity-25 shadow-sm">
+      <div class="container-fluid">
+       <a class="navbar-brand " href="#"><img id="icon" src="/FINAL-PROJECT(World-flavors)/icon.png" alt=""/> World Flavors🥧</a>
+      
+       <div class="text-center " >
+         <a href="#" class="text-center p-3"></a> 
+         <div id="navu" class="btn ms-3 btn-primary">
+            <i class="fa-solid fa-user " ></i>
+         </div>
+          </div>
+    </nav>
+
+     <!-- Linking all pages -->
+   <a href="/FINAL-PROJECT(World-flavors)/index.html"></a>
+   <a href="/FINAL-PROJECT(World-flavors)/categories.html"></a>
+   <a href="/FINAL-PROJECT(World-flavors)/dishes.html"></a>
+   <a href="/FINAL-PROJECT(World-flavors)/ingredients.html"></a>
+   
+    <!-- Main Content (Responsive Layout) -->
+    <div class="row d-flex flex-column-reverse flex-md-row align-items-center m-0">
+
+      <!-- Text Content -->
+      <div id="col1" class="col-12 col-md-8 text-center  text-md p-3">
+        <h1 class="display-5 fw-bold  mb-3 p-2">
+          Discover Delicious Dishes<br>
+        <span class="p-md-5"> Around the World</span> 
+        </h1>
+        <p class="lead  ps-2 pe-2">
+          Browse our curated food menu and satisfy your cravings
+        </p>
+          <p id="youtube">To Cook with Experts Explore Our Recipe Video Gallery <a id="at" href="/FINAL-PROJECT(World-flavors)/recipegallery.html">Click here  <i class="fa-brands  fa-youtube fa-beat" style="color: rgb(189, 12, 12); font-size: x-large;"></i></a></p>
+        <div class="m-4 ">
+          <button id="b2" class="btn btn-primary btn-lg me-2">
+            <a href="/FINAL-PROJECT(World-flavors)/categories.html" class="text-white text-decoration-none">Start Exploring</a>
+            <i class="fa-solid fa-paper-plane" style="color: #e7ced8;"></i>
+          </button>
+
+          <button id="b1"  class="btn btn-info btn-lg me-2" onclick="contactform()">
+            Join Us <i class="fa-solid fa-heart" style="color: #f40e3c;"></i>
+          </button>
+          
+        
+        </div>
+      </div>
+
+      <!-- Image Box -->
+      <div id="indexBox" class="col-12 mt-3 pe-3 mb-4 col-md-4 text-center ">
+        <!-- Image here-->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Copyright @ Pushpanjali.
+      <i class="fa-solid fa-heart" style="color: red;"></i> Made for web-project:
+      Project name is "World Food Menu"
+    </p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function contactform() {
+      const col1 = document.getElementById("col1");
+      col1.classList.add("blur");
+
+      const formContainer = document.createElement("div");
+      formContainer.id = "formContainer";
+      formContainer.className = "text-center";
+
+      formContainer.innerHTML = `
+        <h3 class="mb-4">Register Now</h3>
+        <input type="text" id="name" placeholder="Name" class="form-control" required />
+        <input type="email" placeholder="Email" class="form-control" required />
+        <input type="password" placeholder="Password" class="form-control" required />
+        <button class="btn btn-success mt-3" >Submit</button>
+        <button class="btn btn-danger mt-3 ms-2" onclick="closeForm()">Close</button>
+      `;
+       document.body.appendChild(formContainer);
+    
+    }
+
+
+    function closeForm() {
+      const formContainer = document.getElementById("formContainer");
+      const col1 = document.getElementById("col1");
+      if (formContainer) formContainer.remove();
+      col1.classList.remove("blur");
+    }
+
+    // Image slideshow
+    const box = document.getElementById("indexBox");
+
+    async function display() {
+      const res = await fetch("https://www.themealdb.com/api/json/v1/1/categories.php");
+      const data = await res.json();
+      const categories = data.categories;
+      const img = document.createElement("img");
+      box.appendChild(img);
+
+      let i = 0;
+      setInterval(() => {
+        img.src = categories[i].strCategoryThumb;
+        i = (i + 1) % categories.length;
+      }, 1000);
+    }
+
+    display();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

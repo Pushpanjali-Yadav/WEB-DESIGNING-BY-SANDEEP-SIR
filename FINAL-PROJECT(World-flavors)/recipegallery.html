@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="/FINAL-PROJECT(World-flavors)/icon.png" type="image/x-icon">
+  <title>World Flavors</title>
+
+  <!-- Bootstrap & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="recipegallary.css">
+  
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="/FINAL-PROJECT(World-flavors)/index.html"><img id="icon" src="/FINAL-PROJECT(World-flavors)/icon.png" alt=""/> World Flavors🥧</a>
+      <div class="ms-auto">
+        
+        <a href="/FINAL-PROJECT(World-flavors)/index.html"><i class="fa-solid fa-home p-1" style="font-size: xx-large; color: rgb(7, 27, 3); "></i></a>        
+      </div>
+    </div>
+  </nav>
+<h1 class="topHeading text-center mt-3 mb-3">Welcome To Experts Recipe Gallery</h1>
+  <div class="container-fluid mt-3">
+    <div class="row">
+      <!-- Left Column: Channel Buttons -->
+      <div class="col-md-3 p-3 text-center colLeft ">
+       
+        <h4 class="mb-3">Select Channel <i class="fa-brands fa-youtube fa-bounce" style="color: rgb(209, 44, 44); font-size: larger;"></i></h4></i>
+        <button onclick="searchVideos('UC8gFadPgK2r1ndqLI04Xvvw')">Chef Ricardo Cooking</button>
+        <button onclick="searchVideos('UCJFp8uSYCjXOMnkUyb3CQ3Q')">Tasty</button>
+        <button onclick="searchVideos('UC8gFadPgK2r1ndqLI04Xvvw')">Maangchi</button>
+        <button onclick="searchVideos('UCk3JZr7eS3pg5AGEvBdEvFg')">Village Cooking Channel</button>
+        <button onclick="searchVideos('UCekQr9znsk2vWxBo3YiLq2w')">You Suck at Cooking</button>
+        <button onclick="searchVideos('UCJHA_jMfCvEnv-3kRjTCQXw')">Binging with Babish</button>
+      </div>
+
+      <!-- Right Column: Video Results -->
+      <div class="col-md-9 p-3">
+        <div class="row" id="container">
+          <!-- Dynamic video cards will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- YouTube Fetch Script -->
+  <script>
+    const apiKey = "AIzaSyBcAnlI6-Bc3m3vMdfNHadlsmGe73xK-No";
+
+    async function searchVideos(channelId) {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&type=video&order=date&maxResults=20`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const container = document.getElementById("container");
+        container.innerHTML = "";
+
+        if (!data.items || data.items.length === 0) {
+          container.innerHTML = `<p class="text-white">No videos found.</p>`;
+          return;
+        }
+
+        for (const item of data.items) {
+          const videoId = item.id.videoId;
+          const title = item.snippet.title;
+          const thumbnail = item.snippet.thumbnails.medium.url;
+
+          const videoCard = `
+            <div class="col-md-6 col-lg-4 video-card">
+              <div class="card shadow border-0">
+                <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+                <div class="card-body">
+                  <h5 class="card-title"> ${title}</h5>
+                </div>
+              </div>
+            </div>
+          `;
+          container.innerHTML += videoCard;
+        }
+
+      } catch (error) {
+        console.error("Error fetching videos:", error);
+        document.getElementById("container").innerHTML = `<p class="text-white">Failed to load videos. Try again later.</p>`;
+      }
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
